@@ -4,6 +4,7 @@ import Resister from "../Component/Resister";
 import Services from "../Component/Services";
 import ErrorPage from "../Pages/ErrorPage";
 import ServicesDetails from "../Pages/ServicesDetails";
+import PriveteRoute from "./PriveteRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Layout/Main");
@@ -23,7 +24,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'add-service',
-                element: <AddService></AddService>
+                element: <PriveteRoute><AddService></AddService></PriveteRoute>
 
             },
             {

@@ -53,7 +53,7 @@ const Header = () => {
                     user?.uid ? <>
                         <div className="avatar online">
                             <div className="w-12 rounded-full">
-                                <img src="https://placeimg.com/192/192/people" />
+                                <img alt=''src={user.photoURL} />
                             </div>
                         </div>
                         
