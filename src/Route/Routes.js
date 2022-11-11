@@ -50,7 +50,6 @@ export const router = createBrowserRouter([
             {
                 path:'my-review',
                 element:<PriveteRoute><MyReview></MyReview></PriveteRoute>,
-                loader: ({ params }) => fetch(`https://avengers-travel-server.vercel.app/service/${params.id}`)
             }
 
         ]
