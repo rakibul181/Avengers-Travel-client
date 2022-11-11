@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Contexts/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 import Review from '../Component/Review';
@@ -25,7 +25,8 @@ const ServicesDetails = () => {
             userId: user?.uid
         }
 
-        fetch('https://avengers-travel-server.vercel.app/reviews', {
+        if(user?.uid){
+            fetch('https://avengers-travel-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -42,6 +43,10 @@ const ServicesDetails = () => {
                 e.target.reset()
             })
             .catch(err => console.error(err))
+        }
+        else{
+            toast.warnning('You Must Log in to give a review')
+        }
 
     };
     useEffect(() => {
@@ -119,13 +124,16 @@ const ServicesDetails = () => {
                         <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
                             Add A Review
                         </h3>
+                        <h3 className="mb-4  font-semibold sm:text-center sm:mb-6 sm:text-2xl">
+                             <Link to={'../login'}>Login</Link> to Submit Review
+                        </h3>
                         <form onSubmit={hendelSubmitRevieew}>
                             <div className="mb-1 sm:mb-2">
                                 <label htmlFor="email" className="inline-block mb-1 font-medium">
                                     Email
                                 </label>
                                 <input
-                                    value={user?.email ? user.email : 'example.mail.com'}
+                                    value={ user?.email}
                                     readOnly
                                     placeholder={user?.email ? user.email : 'example.mail.com'}
                                     required
