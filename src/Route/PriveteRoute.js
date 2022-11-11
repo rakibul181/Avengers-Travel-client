@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { FaSpider} from 'react-icons/fa';
 import { Navigate, useLocation } from 'react-router-dom';
-import { AuthContext } from '../../Contexts/AuthProvider';
+import { AuthContext } from '../Contexts/AuthProvider';
 
 const PriveteRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext)

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../Contexts/AuthProvider';
 
 const ServicesDetails = () => {
     const { imgUrl, price, serviceName, sort, _id, details } = useLoaderData()
+    const {user} =  useContext(AuthContext)
     return (
         <div>
             <div className=" mt-8">
@@ -48,7 +50,7 @@ const ServicesDetails = () => {
                 <div className="w-full m-auto max-w-xl xl:px-8 xl:w-5/12">
                     <div className="bg-neutral rounded shadow-2xl p-7 sm:p-10">
                         <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
-                            Add A Service
+                            Add A Review
                         </h3>
                         <form>
                             <div className="mb-1 sm:mb-2">
@@ -67,10 +69,12 @@ const ServicesDetails = () => {
 
                             <div className="mb-1 sm:mb-2">
                                 <label htmlFor="email" className="inline-block mb-1 font-medium">
-                                    E-mail
+                                    Email
                                 </label>
                                 <input
-                                    placeholder="john.doe@example.org"
+                                    value={user?.email?user.email:'example.mail.com'}
+                                    readOnly
+                                    placeholder={user?.email?user.email:'example.mail.com'}
                                     required
                                     type="text"
                                     className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
@@ -79,53 +83,12 @@ const ServicesDetails = () => {
                                 />
                             </div>
                             <div className="mb-1 sm:mb-2">
-                                <label htmlFor="name" className="inline-block mb-1 font-medium">
-                                    Services Photo
-                                </label>
-                                <input
-                                    placeholder="Image url"
-                                    required
-                                    type="url"
-                                    className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                                    id="firstName"
-                                    name="url"
-                                />
-                            </div>
-                            <div className="mb-1 sm:mb-2">
-                                <label htmlFor="name" className="inline-block mb-1 font-medium">
-                                    Services Price
-                                </label>
-                                <input
-                                    placeholder="$ Price"
-                                    required
-                                    type="number"
-                                    className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                                    id="price"
-                                    name="price"
-                                />
-                            </div>
-                            <div className="mb-1 sm:mb-2">
-                                <label htmlFor="Sort" className="inline-block mb-1 font-medium">
-                                    Sort description
-                                </label>
-
-                                <textarea
-                                    placeholder="Write Services Details"
-                                    required
-                                    type="text"
-
-                                    className="textarea flex-grow w-full h-20 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                                    id="Sort"
-                                    name="sort"
-                                />
-                            </div>
-                            <div className="mb-1 sm:mb-2">
                                 <label htmlFor="details" className="inline-block mb-1 font-medium">
-                                    Services Details
+                                     Review the service
                                 </label>
 
                                 <textarea
-                                    placeholder="Write Services Details"
+                                    placeholder="Write a rewiew "
                                     required
                                     type="text"
 
@@ -139,7 +102,7 @@ const ServicesDetails = () => {
                                     type="submit"
                                     className="btn btn-primary inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                                 >
-                                    Add Service
+                                    Submit
                                 </button>
                             </div>
 
