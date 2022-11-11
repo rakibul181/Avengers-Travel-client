@@ -107,6 +107,7 @@ const AddService = () => {
               placeholder="Write Services Details"
               required
               type="text"
+              rows={5}
               className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
               id="Sort"
               name="sort"
@@ -121,6 +122,7 @@ const AddService = () => {
               placeholder="Write Services Details"
               required
               type="text"
+              rows={15}
               className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
               id="details"
               name="details"
@@ -131,12 +133,10 @@ const AddService = () => {
               type="submit"
               className="btn btn-primary inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
             >
-              Subscribe
+               Add Service
             </button>
           </div>
-          <p className="text-xs text-gray-600 sm:text-sm">
-            We respect your privacy. Unsubscribe at any time.
-          </p>
+           
         </form>
       </div>
     </div>
