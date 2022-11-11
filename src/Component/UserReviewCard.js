@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const UserReviewCard = ({ review }) => {
     const { serviceName, reviewText, _id } = review
-    const [displayUsers, setDisplayUsers] = useState();
+    const [displayReview, setDisplayReview] = useState([review]);
     const handelDeleteReviwe = () => {
         const agree = window.confirm(`Are you sure you want to delete Review`);
 
@@ -17,9 +17,9 @@ const UserReviewCard = ({ review }) => {
                     // console.log(data)
                     if (data.deletedCount > 0) {
                         alert('User deleted successfully.');
-                        const remainingUsers = displayUsers
+                        const remainingReview = displayReview
                             .filter(usr => usr._id !== _id);
-                        setDisplayUsers(remainingUsers);
+                        setDisplayReview(remainingReview);
                     }
                 });
         }

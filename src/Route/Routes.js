@@ -2,6 +2,7 @@ import AddService from "../Component/AddService";
 import Login from "../Component/Login";
 import Resister from "../Component/Resister";
 import Services from "../Component/Services";
+import Blog from "../Pages/Blog";
 import ErrorPage from "../Pages/ErrorPage";
 import MyReview from "../Pages/MyReview";
 import ServicesDetails from "../Pages/ServicesDetails";
@@ -50,6 +51,11 @@ export const router = createBrowserRouter([
             {
                 path:'my-review',
                 element:<PriveteRoute><MyReview></MyReview></PriveteRoute>,
+            },
+            {
+                path:'blog',
+                element:<Blog></Blog>
+
             }
 
         ]

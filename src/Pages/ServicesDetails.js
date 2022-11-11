@@ -7,7 +7,7 @@ import Review from '../Component/Review';
 const ServicesDetails = () => {
     const { imgUrl, price, serviceName, sort, _id, details } = useLoaderData()
     const { user } = useContext(AuthContext)
-    const [review, setReview] = useState()
+    const [reviews, setReviews] = useState()
 
     const hendelSubmitRevieew = (e) => {
         e.preventDefault()
@@ -40,6 +40,8 @@ const ServicesDetails = () => {
                 if (data.acknowledged) {
                     toast.success('Review sumitited seccesfully')
                 }
+                const newReviews =[...reviews, review]
+                setReviews(newReviews)
                 e.target.reset()
             })
             .catch(err => console.error(err))
@@ -55,7 +57,7 @@ const ServicesDetails = () => {
             .then(data => {
                 const currentServiceReview = data.filter(review => _id === review.service_id)
                 console.log(currentServiceReview);
-                setReview(currentServiceReview)
+                setReviews(currentServiceReview)
             })
     }, [user, _id])
 
@@ -106,8 +108,8 @@ const ServicesDetails = () => {
                 <p className='text-3xl text-center my-6'>Service Review</p>
                 <table className="table m-auto my-6">
                     <tbody>
-                        { review?
-                            review.map(r=><Review key={r._id} r={r}></Review>)
+                        { reviews?
+                            reviews.map(r=><Review key={r._id} r={r}></Review>)
                         :''
                             
                         }
