@@ -21,7 +21,7 @@ const AddService = () => {
       price: price
     }
     console.log(service);
-    fetch('http://localhost:5000/service', {
+    fetch('https://avengers-travel-server.vercel.app/service', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'

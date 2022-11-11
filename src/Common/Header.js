@@ -11,6 +11,7 @@ const Header = () => {
         <li><Link to={'/'}>Home</Link></li>
         <li><Link to={'services'}>Services</Link></li>
         <li><Link to={'../add-service'}>Add Service</Link></li>
+        <li><Link to={'../my-review'}>My Review</Link></li>
         <li><button className='mt-3 btn btn-sm btn-outline btn-primary' onClick={logOut}>Logout</button></li>
 
 
