@@ -1,17 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import { ArrowRightIcon, } from '@heroicons/react/24/solid'
+import Hero from '../Component/Hero';
 import './Home.css'
+import Service from '../Component/Service';
 
 const Home = () => {
+    const services = useLoaderData()
     return (
         <div>
-            <div className="bg-img-overly hero mt-8 rounded-lg  min-h-screen bg-base-200  ">
-                <div className="hero-content text-center">
-                    <div className="max-w-md">
-                        <h1 className="text-5xl font-bold">Hello <br /> <span className='text-orange-700'>Avengers Traveler's</span></h1>
-                        <p className="py-6">Search our website for the best destinations in the world, where you can enjoy the best vacations.</p>
-                        <Link to={'services'}><button className="btn btn-secondary">Get Started</button></Link>
-                    </div>
+            <Hero></Hero>
+            <div>
+                <h1 className='text-5xl text-center text-secondary font-bold my-10'>Our Services</h1>
+                <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
+                    {
+                        services.map(service => <Service key={service._id} service={service}></Service>)
+                    }
+                </div>
+                <div className='flex justify-center my-6'>
+                    <Link className=''><button className='btn btn-secondary btn-outline'>More <ArrowRightIcon className='  className="h-6 w-6 text-white"'></ArrowRightIcon> </button></Link>
+
                 </div>
             </div>
         </div>

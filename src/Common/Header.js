@@ -6,6 +6,7 @@ const Header = () => {
 
     const menuItem = <>
         <li><Link to={'/'}>Home</Link></li>
+        <li><Link to={'services'}>Services</Link></li>
     
     </>
 
@@ -21,7 +22,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <img className='w-12' src={logo} alt=""  />
-                <a className="btn btn-ghost normal-case text-xl">Avengers Travel</a>
+                <Link to={'/'} className="btn btn-ghost normal-case text-xl">Avengers Travel</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
