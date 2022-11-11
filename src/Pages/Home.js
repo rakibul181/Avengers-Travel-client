@@ -1,14 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './Home.css'
 
 const Home = () => {
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200 bg-[url('https://images.unsplash.com/photo-1603298792146-0b8aa2ce95ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80')]">
+            <div className="bg-img-overly hero mt-8 rounded-lg  min-h-screen bg-base-200  ">
                 <div className="hero-content text-center">
                     <div className="max-w-md">
-                        <h1 className="text-5xl font-bold">Hello there</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <button className="btn btn-primary">Get Started</button>
+                        <h1 className="text-5xl font-bold">Hello <br /> <span className='text-orange-700'>Avengers Traveler's</span></h1>
+                        <p className="py-6">Search our website for the best destinations in the world, where you can enjoy the best vacations.</p>
+                        <Link to={'services'}><button className="btn btn-secondary">Get Started</button></Link>
                     </div>
                 </div>
             </div>
