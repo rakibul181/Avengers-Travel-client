@@ -7,34 +7,34 @@ const AddService = () => {
     const email = e.target.email.value
     const imgUrl = e.target.url.value
     const price = e.target.price.value
-    const details = e.target.details.value 
+    const details = e.target.details.value
     const sort = e.target.sort.value
     const service = {
-        serviceName:serviceName,
-        sort :sort,
-        email:email,
-        imgUrl:imgUrl,
-        details:details,
-        price:price
+      serviceName: serviceName,
+      sort: sort,
+      email: email,
+      imgUrl: imgUrl,
+      details: details,
+      price: price
     }
     console.log(service);
-    fetch('http://localhost:5000/service',{
-            method: 'POST',
-            headers:{
-                'Content-type' :'application/json'
-            },
-            body:JSON.stringify(service)
+    fetch('http://localhost:5000/service', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(service)
 
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if(data.acknowledged){
-                    alert('Service added sussccsfuly')
-                }
-                e.target.reset()
-            })
-            .catch(err => console.error(err))
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data.acknowledged) {
+          alert('Service added sussccsfuly')
+        }
+        e.target.reset()
+      })
+      .catch(err => console.error(err))
 
   };
 
@@ -107,8 +107,8 @@ const AddService = () => {
               placeholder="Write Services Details"
               required
               type="text"
-              rows={5}
-              className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+
+              className="textarea flex-grow w-full h-20 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
               id="Sort"
               name="sort"
             />
@@ -122,8 +122,8 @@ const AddService = () => {
               placeholder="Write Services Details"
               required
               type="text"
-              rows={15}
-              className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+
+              className="textarea flex-grow w-full h-32 px-4 mb-2 transition duration-200 bg-white border  border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
               id="details"
               name="details"
             />
@@ -133,10 +133,10 @@ const AddService = () => {
               type="submit"
               className="btn btn-primary inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
             >
-               Add Service
+              Add Service
             </button>
           </div>
-           
+
         </form>
       </div>
     </div>
