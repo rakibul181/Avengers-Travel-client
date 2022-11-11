@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Contexts/AuthProvider';
 
 const UserReviewCard = ({ review }) => {
+    
     const { serviceName, reviewText, _id } = review
     const [displayReview, setDisplayReview] = useState([review]);
     const handelDeleteReviwe = () => {
@@ -20,8 +22,12 @@ const UserReviewCard = ({ review }) => {
                         const remainingReview = displayReview
                             .filter(usr => usr._id !== _id);
                         setDisplayReview(remainingReview);
+                        
+                        
                     }
                 });
+                 
+                
         }
         
         

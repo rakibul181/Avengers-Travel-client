@@ -3,7 +3,7 @@ import UserReviewCard from '../Component/UserReviewCard';
 import { AuthContext } from '../Contexts/AuthProvider';
 
 const MyReview = () => {
-    const { user } = useContext(AuthContext)
+    const { user, setLoading} = useContext(AuthContext)
     const [userReview, setUserReview] = useState([])
 
     useEffect(() => {
@@ -14,7 +14,7 @@ const MyReview = () => {
                 console.log(currentUserReview);
                 setUserReview(currentUserReview)
             })
-    }, [user,])
+    }, [user])
     return (
         <div className='mt-9 grid grid-cols-1 md:grid-cols-2 gap-8 xl:grid-cols-3'>
             {
